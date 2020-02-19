@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: white;
+            /*    max-width: 1200px;*/
+        }
+
+        img {
+            width: 100%;
+            justify-content: center;
+            object-fit: cover;
+        }
+
+
+        #each_article img {
+            height: 200px;
+        }
+
+        header {
+            /*            background-color: rgba(237, 219, 190, 0.33);*/
+            background-color: white;
+
+            height: 70vw;
+            width: 100vw;
+            position: fixed;
+            top: 126vw;
+            z-index: 1;
+            text-align: end;
+            /*            opacity: 0.6;*/
+
+
+        }
+
+        nav {
+            position: absolute;
+            top: 26vw;
+        }
+
+
+
+
+        .filter {
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #000000;
+            line-height: 2rem;
+            border-bottom: 1px solid;
+            margin-bottom: 1vw;
+            margin: 1vw;
+            background-color: rgba(240, 248, 255, 0);
+            border-radius: 12px;
+
+
+        }
+
+        .valgt {
+            /*            background-color: #92907957;*/
+            background-color: #49494936;
+
+        }
+
+
+
+
+        #splash {
+            width: 100vw;
+            height: 70vh;
+            /*            background-image: url(imgs/large/dynryp.jpg);*/
+            background-image: url(imgs/large/bochkarev.jpg);
+            background-size: cover;
+            background-position: 85% 10%;
+            position: relative;
+            top: -3vw;
+            /*    background-position: center;*/
+            max-width: none;
+
+        }
+
+
+        #logo {
+            width: 82%;
+            position: absolute;
+            z-index: 2;
+            left: 3vw;
+            top: -4vw;
+        }
+
+
+
+        main {
+            display: grid;
+            /*    grid-template-columns: repeat(1, 1fr);*/
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            max-width: 1000px;
+            grid-gap: 5px;
+            margin: 0 auto;
+
+        }
+
+        article {
+            /*                border: 1px solid;*/
+            padding: 2vw;
+            display: flex;
+            /*            flex-direction: row-reverse;*/
+            flex-direction: column-reverse;
+            justify-content: center;
+
+        }
+
+
+        p {
+            /*            margin-left: 4vw;*/
+            font-size: 1.2em;
+        }
+
+        h3 {
+            /*            margin-left: 1vw;*/
+            text-transform: uppercase;
+        }
+
+        section {
+            padding: 3vw;
+            height: 158px;
+            background-color: #77422f2b;
+        }
+
+
+        #popup {
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            color: #fdfbfb;
+            font-size: 1.5rem;
+            background-color: rgba(21, 16, 16, 0.71);
+        }
+
+        #popup img {
+            width: 50%;
+        }
+
+        #popup button {
+            font-size: 1.6rem;
+            margin: 3vw;
+
+        }
+
+        #eachRet_popup {
+            margin: 3vw;
+            padding: 3vw;
+            /*            background-color: white;*/
+            cursor: pointer;
+        }
+
+
+        .skjul {
+            display: none;
+        }
+
+
+
+
+        #each_article {
+            /*            border: 1px solid;*/
+            padding: 2vw;
+            display: flex;
+            /*            flex-direction: row-reverse;*/
+            flex-direction: column-reverse;
+            justify-content: center;
+
+        }
+
+
+
+
+        @media screen and (min-width:600px) {
+            #eachRet_popup {
+                width: 65vw;
+                margin-left: 7vw;
+            }
+
+
+            #popup button {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                width: 100vw;
+            }
+        }
+
+
+
+
+        @media screen and (min-width:768px) {
+            main {
+
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            header {
+                height: 29vw;
+                top: 0vw;
+            }
+
+            #logo {
+                width: 50%;
+                top: 2vw;
+
+            }
+
+            nav {
+                top: 20vw;
+                margin-left: -8vw;
+
+            }
+
+            .filter {
+                font-size: 1.2rem;
+                line-height: 2.2rem;
+            }
+
+            #splash {
+                background-attachment: fixed;
+                height: 100vh;
+            }
+
+            p {
+                font-size: 1.4rem;
+            }
+
+        }
+
+        @media screen and (min-width:900px) {
+
+
+            main {
+
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            header {
+                height: 12vw;
+            }
+
+            #logo {
+                width: 26%;
+                top: 1vw;
+            }
+
+            nav {
+                top: 6vw;
+                margin-left: -10vw;
+            }
+
+            .filter {
+                line-height: 2.5rem;
+                font-size: 1.4rem;
+            }
+
+
+            #splash {
+                background-attachment: fixed;
+            }
+
+            section {
+                height: 200px;
+                padding: 1.5vw;
+            }
+
+            p {
+                font-size: 1.3rem;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+        <img id="logo" src="babushka.svg">
+        <nav>
+            <button class="filter valgt" data-filter="alle">Alle</button>
+            <button class="filter" data-filter="forretter">Forretter</button>
+            <button class="filter" data-filter="hovedretter">Hovedretter</button>
+            <button class="filter" data-filter="desserter">Desserter</button>
+            <button class="filter" data-filter="drikkevarer">Drikkevarer</button>
+        </nav>
+
+    </header>
+
+
+
+    <div id="splash">
+    </div>
+
+
+
+    <template>
+        <article id="each_article" class="each_popup">
+            <section>
+                <h3></h3>
+                <p id="type"></p>
+                <p id="sted"></p>
+            </section>
+
+            <img src="" alt="">
+
+        </article>
+    </template>
+
+
+    <main></main>
+
+
+</body>
+<script>
+    let retter = [];
+    let filter = "alle";
+    const container = document.querySelector("main");
+    //    let detalje = document.querySelector("#popup");
+    const endpoint = "https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json";
+    document.addEventListener("DOMContentLoaded", start);
+
+
+
+    function start() {
+        hentDta();
+        console.log("start");
+    }
+
+
+    async function hentDta() {
+        console.log("hentDta");
+
+        const response = await fetch(endpoint);
+        retter = await response.json();
+        console.log(retter);
+        addEventToButtons();
+        visRetter();
+    }
+
+    function addEventToButtons() {
+        document.querySelectorAll(".filter").forEach(elm => {
+            elm.addEventListener("click", filtrering);
+        })
+    }
+
+
+    function filtrering() {
+        console.log("filter", this.dataset.filter);
+        filter = this.dataset.filter;
+        document.querySelector("h3").textContent = this.textContent;
+        document.querySelectorAll(".filter").forEach(elm => {
+            elm.classList.remove("valgt");
+        })
+        this.classList.add("valgt");
+        visRetter();
+    }
+
+
+
+
+    function visRetter() {
+        console.log(retter);
+
+
+
+        container.innerHTML = "";
+        const retterTemplate = document.querySelector("template");
+
+        retter.feed.entry.forEach(eachRet => {
+            if (filter == "alle" || filter == eachRet.gsx$kategori.$t) {
+
+                const klon = retterTemplate.cloneNode(true).content;
+                klon.querySelector("h3").textContent = eachRet.gsx$navn.$t;
+                klon.querySelector("#type").textContent = eachRet.gsx$kort.$t;
+                //este "+" significa concatinering
+                klon.querySelector("img").src = "imgs/small/" + eachRet.gsx$billede.$t + "-sm.jpg";
+                klon.querySelector(".each_popup").addEventListener("click", function() {
+
+                    location.href = "detalje.html?id=" + eachRet.gsx$id.$t;
+
+                });
+
+                container.appendChild(klon);
+            }
+        })
+
+    }
+
+</script>
+<!--<script src="menu_babushka.js"></script>-->
+
+</html>
